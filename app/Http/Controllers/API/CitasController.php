@@ -50,7 +50,7 @@ class CitasController extends Controller
      */
     public function show($id)
     {
-        return new CitasResource(Cita::findOrFail($id));
+        return new CitaResource(Cita::findOrFail($id));
     }
 
     /**

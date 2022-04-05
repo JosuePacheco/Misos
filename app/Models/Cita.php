@@ -11,8 +11,8 @@ class Cita extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        
-        'fecha'
+        'usuario_id'
+        ,'fecha'
         ,'descripcion'
         , 'estatus'
     ];
@@ -20,7 +20,8 @@ class Cita extends Model
     public static function reglasValidacion() {
         // https://laravel.com/docs/9.x/validation#available-validation-rules
         return [
-            'fecha' => 'required'
+            'usuario_id' => 'required|integer|min:0'
+            ,'fecha' => 'required|string'
             ,'descripcion' => 'required|string|max:500|min:10'
             , 'estatus' => 'required|in:' . implode(',', self::opcionesEstatus())
         ];
@@ -28,7 +29,8 @@ class Cita extends Model
     
     public static function etiquetas() {
         return [
-            'fecha' => 'fecha'
+        'usuario_id' => 'usuario_id'
+            ,'fecha' => 'fecha'
             ,'descripcion' => 'descripcion'
             , 'estatus' => 'estatus'
         ];
