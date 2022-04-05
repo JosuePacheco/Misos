@@ -1,36 +1,31 @@
 ### Obtener citas
 GET http://127.0.0.1:8000/api/citas
 Accept: application/json
-Authorization: Bearer 3|lnF1XbjmfPqmloO5sQE1xGCWGdd7A9U4F2HxGaE0
+Authorization: Bearer 1|bVDQE0Iqh8QbZBTxusAUmN5NVmprxoTqh3iJwyLe
 
 ### Obtener un producto
 GET http://127.0.0.1:8000/api/citas/3
 Accept: application/json
-Authorization: Bearer 1|DCkzDvP9XivWYZ0Se1832nLAtpQzPflWOq2qpCDp
+Authorization: Bearer 1|bVDQE0Iqh8QbZBTxusAUmN5NVmprxoTqh3iJwyLe
 
 ### Crear un producto
 POST http://127.0.0.1:8000/api/citas
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|DCkzDvP9XivWYZ0Se1832nLAtpQzPflWOq2qpCDp
+Authorization: Bearer 1|bVDQE0Iqh8QbZBTxusAUmN5NVmprxoTqh3iJwyLe
 
 {
-    "categoria_id":2
-    , "subcategoria_id":3
-    , "unidad_medida_id":3
-    , "producto":"Producto creado a través de API"
-    , "costo_unitario":15
-    , "precio_unitario":22
-    , "existencias":1000
-    , "descripcion":"Producto nuevo creado a través de llamada a API"
-    , "estatus":"activo"
+    
+     "fecha":"2022-04-05"
+    , "descripcion":"Cita nueva creada a través de llamada a API"
+    , "estatus":"asistio"
 }
 
 ### Editar un producto
 PUT http://127.0.0.1:8000/api/citas/3
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|DCkzDvP9XivWYZ0Se1832nLAtpQzPflWOq2qpCDp
+Authorization: Bearer 1|bVDQE0Iqh8QbZBTxusAUmN5NVmprxoTqh3iJwyLe
 
 {
     "categoria_id":2
