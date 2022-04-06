@@ -4,11 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Resources\Detalle_ventaResource;
-use App\Models\Detalles_venta;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use App\Http\Controllers\ApiController;
 
-class Detalles_ventaController extends ApiController
+class UsersController extends ApiController
 {
      /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class Detalles_ventaController extends ApiController
      */
     public function index()
     {
-        return Detalle_ventaResource::collection(Detalles_venta::all());
+        return UserResource::collection(User::all());
     }
 
     /**
@@ -28,9 +28,9 @@ class Detalles_ventaController extends ApiController
      */
     public function store(Request $request)
     {
-        $request->validate(Detalles_venta::reglasValidacion());
-        $detalle_venta = Detalles_venta::create($request->all());
-        return new Detalle_ventaResource($detalle_venta);
+        $request->validate(User::reglasValidacion());
+        $user = User::create($request->all());
+        return new UserResource($user);
     }
 
     /**
@@ -41,7 +41,7 @@ class Detalles_ventaController extends ApiController
      */
     public function show($id)
     {
-        return new Detalle_ventaResource(Detalles_venta::findOrFail($id));
+        return new UserResource(User::findOrFail($id));
     }
 
     /**
@@ -53,10 +53,10 @@ class Detalles_ventaController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        $request->validate(Detalles_venta::reglasValidacion());
-        $detalle_venta = Detalles_venta::findOrFail($id);
-        $detalle_venta->update($request->all());
-        return new Detalle_ventaResource($detalle_venta);
+        $request->validate(User::reglasValidacion());
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return new UserResource($user);
     }
 
     /**

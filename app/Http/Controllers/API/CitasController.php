@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\CitaResource;
 use App\Models\Cita;
+use App\Http\Controllers\ApiController;
 
-class CitasController extends Controller
+class CitasController extends ApiController
 {
     /**
      * Display a listing of the resource.
