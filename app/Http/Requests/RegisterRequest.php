@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class categoriaRequest extends FormRequest
+class RegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,14 @@ class categoriaRequest extends FormRequest
     public function rules()
     {
         return [
-            'categoria' => 'required|string|min:5|max:50'
-            , 'estatus' => 'required|in:' . implode(',', self::opcionesEstatus())
-        ];
-    }
+            
+            'name' => 'required|string|min:10|max:50'
+            , 'primer_apellido' => 'required|string|min:3|max:100'
+            , 'segundo_apellido' => 'required|string|min:3|max:100'
+            , 'fecha_nacimiento' => 'required|string|min:9|max:11'
+            , 'email' => 'required|string|min:10|max:30'
+            , 'password' => 'required|string|min:6|max:30'
 
-    public static function opcionesEstatus() {
-        return [
-            'activa' => 'activa'
-            , 'inactiva' => 'inactiva'
         ];
     }
 }

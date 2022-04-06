@@ -13,7 +13,7 @@ class detalles_ventaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class detalles_ventaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'producto_id' => 'required|integer|min:0'
+            , 'costo_unitario' => 'required|numeric|min:0|max:2000'
+            , 'precio_unitario' => 'required|numeric|min:0|max:3000'
+            , 'cantidad' => 'required|numeric|min:0|max:10000'
         ];
     }
 }

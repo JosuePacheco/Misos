@@ -13,7 +13,7 @@ class estadoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class estadoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'estado' => 'required|string|min:5|max:500'
         ];
     }
 }

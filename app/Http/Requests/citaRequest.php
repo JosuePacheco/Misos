@@ -13,7 +13,7 @@ class citaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class citaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'usuario_id' => 'required|integer|min:0'
+            ,'fecha' => 'required|string'
+            ,'descripcion' => 'required|string|max:500|min:10'
+            , 'estatus' => 'required|in:' . implode(',', self::opcionesEstatus())
+        ];
+    }
+    public static function opcionesEstatus() {
+        return [
+            'asistio' => 'asistio'
+            , 'no asistio' => 'no asistio'
         ];
     }
 }

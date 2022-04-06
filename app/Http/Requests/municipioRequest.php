@@ -13,7 +13,7 @@ class municipioRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class municipioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'estado_id' => 'required|integer|min:0'
+            , 'municipio' => 'required|string|min:3|max:1000'
         ];
     }
 }

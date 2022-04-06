@@ -13,7 +13,7 @@ class productoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class productoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'categoria_id' => 'required|integer|min:0'
+            , 'producto' => 'required|string|min:3|max:100'
+            , 'costo_unitario' => 'required|numeric|min:0|max:2000'
+            , 'precio_unitario' => 'required|numeric|min:0|max:3000'
+            , 'existencias' => 'required|numeric|min:0|max:10000'
+            , 'descripcion' => 'required|string|max:5000'
+            , 'estatus' => 'required|in:' . implode(',', self::opcionesEstatus())
+        ];
+    }
+    public static function opcionesEstatus() {
+        return [
+            'activo' => 'activo'
+            , 'inactivo' => 'inactivo'
         ];
     }
 }

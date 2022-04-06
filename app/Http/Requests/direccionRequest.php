@@ -13,7 +13,7 @@ class direccionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class direccionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'usuario_id' => 'required|integer|min:0'
+            ,'estado_id' => 'required|integer|min:0'
+            ,'municipio_id' => 'required|integer|min:0'
+            , 'localidad' => 'required|string|min:3|max:2000'
+            , 'calle' => 'required|string|min:0|max:2000'
+            , 'numero_exterior' => 'required|numeric|min:0|max:3000'
+            , 'codigo_postal' => 'required|numeric|min:0|max:1000000'
+            , 'referencias' => 'required|string|max:5000'
         ];
     }
 }
