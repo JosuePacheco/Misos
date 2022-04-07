@@ -79,6 +79,27 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="rol" class="col-md-4 col-form-label text-md-end">{{ __('Rol') }}</label>
+                            <div class="col-md-6">
+                            <select id="rol" class="form-select">
+                                <option>Administrador</option>
+                                <option>Cliente</option>
+                                <option>Proveedor</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="estatus" class="col-md-4 col-form-label text-md-end">{{ __('Estatus') }}</label>
+                            <div class="col-md-6">
+                            <select id="estatus" class="form-select">
+                                <option>Activo</option>
+                                <option>Inactivo</option>
+                              </select>
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo') }}</label>
