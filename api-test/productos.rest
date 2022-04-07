@@ -27,15 +27,13 @@ Authorization: Bearer 2|LG5cKX019hQ1uEy70fNyUcToB5twSRbatpEjSB3K
 }
 
 ### Editar un producto
-PUT http://127.0.0.1:8000/api/productos/3
+PUT http://127.0.0.1:8000/api/productos/1
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 2|LG5cKX019hQ1uEy70fNyUcToB5twSRbatpEjSB3K
+Authorization: Bearer 2|Gv9rvjOaDCj7L2oi8xRiJCosWOV12a4ak95QRhUi
 
 {
     "categoria_id":2
-    , "subcategoria_id":3
-    , "unidad_medida_id":4
     , "producto":"Producto modificado a través de API"
     , "costo_unitario":15.5
     , "precio_unitario":22.5
