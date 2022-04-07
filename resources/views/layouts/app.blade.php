@@ -41,15 +41,15 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('categorias.index') }}"><i class="fa fa-box-open"></i> Categorías</a></li>
-                                <li><a class="dropdown-item" href="{{ route('citas.index') }}"><i class="fa fa-box-open"></i>Citas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('citas.index') }}"><i class="fas fa-calendar-days"></i> Citas</a></li>
 
-                                <li><a class="dropdown-item" href="{{ route('detalles_venta.index') }}"><i class="fa fa-box-open"></i>Detalles venta</a></li>
+                                <li><a class="dropdown-item" href="{{ route('detalles_venta.index') }}"><i class="fab fa-cloudsmith"></i> Detalles venta</a></li>
 
-                                <li><a class="dropdown-item" href="{{ route('direcciones.index') }}"><i class="fa fa-box-open"></i> Direcciones</a></li>
+                                <li><a class="dropdown-item" href="{{ route('direcciones.index') }}"><i class="fas fa-compass"></i> Direcciones</a></li>
 
                                 <li><a class="dropdown-item" href="{{ route('productos.index') }}"><i class="fa fa-box"></i> Productos</a></li>
 
-                                <li><a class="dropdown-item" href="{{ route('ventas.index') }}"><i class="fa fa-box-open"></i>Ventas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('ventas.index') }}"><i class="fas fa-credit-card"></i>Ventas</a></li>
                             </ul>
                         </li>
                     </ul>
