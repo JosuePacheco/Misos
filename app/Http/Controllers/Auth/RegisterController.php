@@ -57,10 +57,11 @@ class RegisterController extends Controller
             'primer_apellido' => ['required', 'string', 'max:30'],
             'segundo_apellido' => ['required', 'string', 'max:30'],
             'fecha_nacimiento' => ['required', 'string'],
-            //'sexo' => 
+            , 'sexo' => 'required|in:' . implode(',', self::opcionesSexo())
+            , 'rol' => 'required|in:' . implode(',', self::opcionesRol())
+            , 'estatus' => 'required|in:' . implode(',', self::opcionesEstatus())
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            //'estatus' =>
         ]);
     }
 
@@ -72,8 +73,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-       /* $user User::create([
+       return User::create([
             'name' => $data['name'],
+            'primer_apellido' => $data['primer_apellido'],
+            'segundo_apellido' => $data['segundo_apellido'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'sexo' => $data['sexo'],
+            'rol' => $data['rol'],
+            'estatus' => $data['estatus'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
 
