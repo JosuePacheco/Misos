@@ -1,7 +1,7 @@
 ### Obtener productos
 GET http://127.0.0.1:8000/api/productos
 Accept: application/json
-Authorization: Bearer 2|LG5cKX019hQ1uEy70fNyUcToB5twSRbatpEjSB3K
+Authorization: Bearer 3|f6oSyiY53VsWcOo8QJvsvTLsiwki6mOuOPpfKlAp
 
 ### Obtener un producto
 GET http://127.0.0.1:8000/api/productos/3

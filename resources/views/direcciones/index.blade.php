@@ -15,7 +15,10 @@
                         <th style="width:10%">Número exterior</th>
                         <th style="width:10%">Código postal</th>
                         <th style="width:30%">Referencias</th>
-                        <th style="width:10%"><a class="btn btn-primary btn-sm" href="{!! route('direcciones.create') !!}" title="añadir direccion"><i class="fa fa-circle-plus"></i></a></th>
+                        <th style="width:10%">
+                            @can('direcciones.create')<a class="btn btn-primary btn-sm" href="{!! route('direcciones.create') !!}" title="añadir direccion"><i class="fa fa-circle-plus"></i></a>
+                            @endcan
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,13 +30,17 @@
                         <td>{{ $direccion->codigo_postal }}</td>
                         <td>{{ $direccion->referencias }}</td>
                         <td>
+                            @can('direcciones.update')
                             <a class="btn btn-secondary btn-sm" href="{!! route('direcciones.edit', $direccion->id) !!}" title="editar dirección"><i class="fa fa-edit"></i></a>
                             &nbsp;
+                            @endcan
+                            @can('citas.destroy')
                             <form class="d-inline" action="{!! route('direcciones.destroy', $direccion->id) !!}" method="POST">
                                 @csrf
                                 <input type="hidden" name="_method" value="delete" />
                                 <button class="btn btn-danger btn-sm" type="submit" title="borrar direccion"><i class="fa fa-trash"></i></button>
                             </form>
+                            @endcan
                         </td>
                     </tr>
                     @endforeach

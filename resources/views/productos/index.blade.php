@@ -15,7 +15,10 @@
                         <th style="width:10%">Precio unitario</th>
                         <th style="width:10%">Existencias</th>
                         <th style="width:10%">Estatus</th>
-                        <th style="width:10%"><a class="btn btn-primary btn-sm" href="{!! route('productos.create') !!}" title="crear producto"><i class="fa fa-circle-plus"></i></a></th>
+                        @can('productos.create')
+                        <th style="width:10%"><a class="btn btn-primary btn-sm" href="{!! route('productos.create') !!}" title="crear producto"><i class="fa fa-circle-plus"></i></a>
+                        @endcan
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,13 +30,17 @@
                         <td>{{ $producto->existencias }}</td>
                         <td>{{ $producto->estatus }}</td>
                         <td>
+                            @can('productos.update')
                             <a class="btn btn-secondary btn-sm" href="{!! route('productos.edit', $producto->id) !!}" title="editar producto"><i class="fa fa-edit"></i></a>
                             &nbsp;
+                            @endcan
+                            @can('productos.destroy')
                             <form class="d-inline" action="{!! route('productos.destroy', $producto->id) !!}" method="POST">
                                 @csrf
                                 <input type="hidden" name="_method" value="delete" />
                                 <button class="btn btn-danger btn-sm" type="submit" title="borrar producto"><i class="fa fa-trash"></i></button>
                             </form>
+                            @endcan
                         </td>
                     </tr>
                     @endforeach

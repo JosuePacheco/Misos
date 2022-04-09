@@ -13,7 +13,10 @@
                         <th style="width:25%">Fecha</th>
                         <th style="width:40%">Descripción</th>
                         <th style="width:25%">Estatus</th>
-                        <th style="width:10%"><a class="btn btn-primary btn-sm" href="{!! route('citas.create') !!}" title="crear cita"><i class="fa fa-circle-plus"></i></a></th>
+                        @can('citas.create')
+                        <th style="width:10%"><a class="btn btn-primary btn-sm" href="{!! route('citas.create') !!}" title="crear cita"><i class="fa fa-circle-plus"></i></a>
+                        @endcan
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,13 +26,17 @@
                         <td>{{ $cita->descripcion }}</td>
                         <td>{{ $cita->estatus }}</td>
                         <td>
+                            @can('citas.update')
                             <a class="btn btn-secondary btn-sm" href="{!! route('citas.edit', $cita->id) !!}" title="editar cita"><i class="fa fa-edit"></i></a>
                             &nbsp;
+                            @endcan
+                            @can('citas.destroy')
                             <form class="d-inline" action="{!! route('citas.destroy', $cita->id) !!}" method="POST">
                                 @csrf
                                 <input type="hidden" name="_method" value="delete" />
                                 <button class="btn btn-danger btn-sm" type="submit" title="borrar cita"><i class="fa fa-trash"></i></button>
                             </form>
+                            @endcan
                         </td>
                     </tr>
                     @endforeach

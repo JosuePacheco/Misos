@@ -40,16 +40,20 @@
                                 Catálogos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @can('categorias.create')
                                 <li><a class="dropdown-item" href="{{ route('categorias.index') }}"><i class="fa fa-box-open"></i> Categorías</a></li>
+                                @endcan
                                 <li><a class="dropdown-item" href="{{ route('citas.index') }}"><i class="fas fa-calendar-days"></i> Citas</a></li>
-
+                                @can('detalles_venta.create')
                                 <li><a class="dropdown-item" href="{{ route('detalles_venta.index') }}"><i class="fab fa-cloudsmith"></i> Detalles venta</a></li>
-
+                                @endcan
                                 <li><a class="dropdown-item" href="{{ route('direcciones.index') }}"><i class="fas fa-compass"></i> Direcciones</a></li>
-
+                                @can('productos.create')
                                 <li><a class="dropdown-item" href="{{ route('productos.index') }}"><i class="fa fa-box"></i> Productos</a></li>
-
+                                @endcan
+                                @can('ventas.create')
                                 <li><a class="dropdown-item" href="{{ route('ventas.index') }}"><i class="fas fa-credit-card"></i>Ventas</a></li>
+                                @endcan
                             </ul>
                         </li>
                     </ul>

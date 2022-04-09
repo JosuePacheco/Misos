@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Producto;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 use JsValidator;
 
 class ProductosController extends Controller
@@ -28,6 +29,10 @@ class ProductosController extends Controller
      */
     public function create()
     {
+       $user = Auth::user();
+        /*if (!$user==can('productos.create')){
+            abort(403, 'Sin acceso a esta seccion');
+        }*/
         $producto = new Producto;
         // enviamos listado de categorías posibles
         $categorias = Categoria::select('id', 'categoria')->orderBy('categoria', 'asc')->pluck('categoria', 'id');
@@ -105,8 +110,8 @@ class ProductosController extends Controller
         return redirect()->route('productos.index');
     }
 
-    protected function setValidator(Request $request, $validationRules, $replaceValidationRules = []) {
-        return Validator::make($request->all(), array_merge($validationRules, $replaceValidationRules))
-            ->setAttributeNames(Producto::etiquetas());
-    }
+        protected function setValidator(Request $request, $validationRules, $replaceValidationRules = []) {
+            return Validator::make($request->all(), array_merge($validationRules, $replaceValidationRules))
+                ->setAttributeNames(Producto::etiquetas());
+        }
 }
